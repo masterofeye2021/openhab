@@ -1,0 +1,339 @@
+Group     gHelligkeit        "Helligkeit"
+Group     gTemperatur        "Temperatur"
+Group     gBeleuchtung        "Beleuchtung"
+Group     gPraesenz          "Praesenz"
+Group     gRollladen         "Rollladen"
+Group     gLuftfeuchtigkeit  "Luftfeuchtigkeit"
+Group     gLuftdruck         "Luftdruck"
+Group     gCO2               "CO2"
+Group     gVOC               "VOC"
+Group     gVOC1               "VOC1"
+Group     gHelligkeit        "Helligkeit"
+Group     gHCL               "HCL"
+Group     gFarbtemperatur    "Farbtemperatur"
+
+Group     gWOZ_Rollladen     "Wohnzimmer Rollladen"
+Group:Number:AVG     gWOZ_Temperatur    "Temperatur im Wohnzimmer"
+
+Switch    iGen_R_Tag_und_Nacht  "Tag und Nacht Objekt" [Point] {channel="knx:device:c58a225b77:cGen_R_Tag_und_Nacht"}
+Switch    iGen_R_Uhrzeit_und_Datum  "Uhrzeit und Datum Objekt" [Point] {channel="knx:device:c58a225b77:cGen_R_Uhrzeit",channel="knx:device:c58a225b77:cGen_R_Datum", channel="knx:device:c58a225b77:cGen_R_Uhrzeit_und_Datum",channel="ntp:ntp:local:dateTime"[profile="system:follow"]}
+
+Number Test "Test" <ikTest> (gVOC1)
+
+Group     lAussen            "00 Aussenbereich"                  <ikAussen>                                 [Location]
+Group     lCarport             "00 Carport"                        <ikCarport>         (lAussen)             [Location]
+Group     lStall                "01 Stall"                          <ikCarport>      (lAussen)      [Location]
+Group     lDach                "02 Dach"                           <ikCarport>         (lAussen)             [Location]
+Group     eWetterstation       "Wetterstation"                  <ikWetterstation>   (lDach)                [Equipment]
+Number    iDH_R_Daemmerung     "Dämmerungswert"                 <ikHelligkeit>      (eWetterstation)       [Point]                 {channel="knx:device:c58a225b77:cDH_R_Daemmerung", stateDescription=" " [ pattern="%.1f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iDH_R_Helligkeit_Ost     "Helligkeit Richtung Osten"             <ikHelligkeit>      (eWetterstation,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cDH_R_Helligkeit_Ost", stateDescription=" " [ pattern="%.1f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iDH_R_Helligkeit_West    "Helligkeit Richtung Westen"             <ikHelligkeit>      (eWetterstation,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cDH_R_Helligkeit_West", stateDescription=" " [ pattern="%.1f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iDH_R_Helligkeit_Sued     "Helligkeit Richtung Süden"            <ikHelligkeit>      (eWetterstation,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cDH_R_Helligkeit_Sued", stateDescription=" " [ pattern="%.1f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max"]}
+Number    iDH_R_Temperatur     "Temperatur auf dem Dach"            <ikTemperatur>      (eWetterstation,gTemperatur)       [Point]                 {channel="knx:device:c58a225b77:cDH_R_Temperatur", stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max"]}
+Number    iDH_R_Windgeschwindigkeit     "Windgeschwindigkeit auf dem Dach"            <ikWindGeschwindigkeit>      (eWetterstation)       [Point]                 {channel="knx:device:c58a225b77:cDH_R_Windgeschwindigkeit", stateDescription=" " [ pattern="%.1f m/s", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max"]}
+
+
+Group     lInnen             "01 Innenbereich"                   <ikInnen>                [Location]
+Group     lKeller            "00 Keller"                        <ikKeller>         (lInnen)             [Location]
+Group     lErdgeschoss       "01 Erdgeschoss"                        <ikErdgeschoss>         (lInnen)             [Location]
+Group     lDachgeschoss      "02 Dachgeschoss"                        <iDachgeschoss>         (lInnen)             [Location]
+
+Group     lTechnikraum       "00 Technikraum"                        <ikTechnikraum>         (lKeller)             [Location]
+Group     lBastelzimmer      "01 Bastelzimmer"                        <ikBastelzimmer>         (lKeller)             [Location]
+Group     lLagerraum         "02 Lagerraum"                        <ikLagerraum>         (lKeller)             [Location]
+
+Group     lFlurEG       "00 Flur Erdgeschoss"                        <ikFlur>         (lErdgeschoss)             [Location]
+Group     lWohnzimmer      "01 Wohnzimmer"                        <ikWohnzimmer>         (lErdgeschoss)             [Location]
+Group     lKueche         "02 Küche"                        <ikKueche>         (lErdgeschoss)             [Location]
+Group     lGWC         "03 Gäste-WC"                        <ikGWC>         (lErdgeschoss)             [Location]
+Group     lHWR        "04 Hauswirtschaftsraum"                        <ikHWR>         (lErdgeschoss)             [Location]
+
+Group     lFlurDG       "00 Flur Dachgeschoss"                        <ikFlur>         (lDachgeschoss)             [Location]
+Group     lSchlafzimmer      "01 Schlafzimmer"                        <ikSchlafzimmer>         (lDachgeschoss)             [Location]
+Group     lKinderzimmer         "02 Kinderzimmer"                        <ikKinderzimmer>         (lDachgeschoss)             [Location]
+Group     lBad         "03 Bad"                        <ikBad>         (lDachgeschoss)             [Location]
+Group     lBuero        "04 Büro"                        <ikBuero>         (lDachgeschoss)             [Location]
+Group     lAnkleide        "05 Ankleide"                        <ikAnkleide>         (lDachgeschoss)             [Location]
+Group     lAbstellraum        "06 Abstellraum"                        <ikAbstellraum>         (lDachgeschoss)             [Location]
+
+Group     gEG  "alle Erdgeschoss Komponenten"
+Group     gWOZ "alle Wohnzimmer Komponenten"
+Group     eWOZ_Praesenzmelder_TP    "Präsenzmelder Wohnzimmer"   <ikPraesenz>         (lWohnzimmer,gWOZ,gEG)                [Equipment]
+Switch    iWOZ_R_Praesenz_TP_True    "True Präsenz im Wohnzimmer"                 <ikPraesenz>      (eWOZ_Praesenzmelder_TP,gPraesenz)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_Praesenz_TP_True", stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_R_Praesenz_TP    "Präsenz im Wohnzimmer"                 <ikPraesenz>      (eWOZ_Praesenzmelder_TP,gPraesenz)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_Praesenz_TP", stateDescription=" " [readOnly="true" ]}
+Number    iWOZ_R_Temperatur_TP     "Temperatur vom Präsenzmelder im Wohnzimmer"                 <ikTemperatur>      (eWOZ_Praesenzmelder_TP,gTempertatur,gWOZ_Temperatur)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_Temperatur_TP",  stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iWOZ_R_VOC_TP     "VOC vom Präsenzmelder im Wohnzimmer"                 <ikVOC>      (eWOZ_Praesenzmelder_TP,gVOC)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_VOC_TP",  stateDescription=" " [ pattern="%.0f ppb", min="0", max="2000", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iWOZ_R_CO2_TP     "CO2 vom Präsenzmelder im Wohnzimmer"                 <ikCO2>      (eWOZ_Praesenzmelder_TP,gCO2)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_CO2_TP",  stateDescription=" " [ pattern="%.0f ppm", min="0", max="2000", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iWOZ_R_Luftfeuchtigkeit_TP     "Luftfeuchtigkeit vom Präsenzmelder im Wohnzimmer"                 <ikCO2>      (eWOZ_Praesenzmelder_TP,gLuftfeuchtigkeit)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_Luftfeuchtigkeit_TP",  stateDescription=" " [ pattern="%.1f %", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iWOZ_R_Relative_Luftdruck_TP     "relativer Luftfeuchtigkeit vom Präsenzmelder im Wohnzimmer"                 <ikCO2>      (eWOZ_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_Relativer_Luftdruck_TP",  stateDescription=" " [ pattern="%.0f Pa", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iWOZ_R_Absoluter_Luftdruck_TP     "absoluter Luftfeuchtigkeit vom Präsenzmelder im Wohnzimmer"                 <ikCO2>      (eWOZ_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_Absoluter_Luftdruck_TP",  stateDescription=" " [ pattern="%.0f Pa", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iWOZ_R_Helligkeit_TP     "Helligkeit vom Präsenzmelder im Wohnzimmer"                 <ikHelligkeit>      (eWOZ_Praesenzmelder_TP,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_Helligkeit_TP",  stateDescription=" " [ pattern="%.0f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eWOZ_Praesenzmelder_BJ    "Präsenzmelder Esstisch"   <ikPraesenz>         (lWohnzimmer,gWOZ,gEG)                [Equipment]
+Number    iWOZ_R_Temperatur_BJ   "Temperatur vom BJ PM Esstisch"                 <ikTemperatur>      (eWOZ_Praesenzmelder_BJ,gTemperatur,gWOZ_Temperatur)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_Temperatur_BJ", stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Switch    iWOZ_R_Praesenz_BJ_Z1    "Präsenz vom BJ PM im Esstisch (Z1)"                 <ikPraesenz>      (eWOZ_Praesenzmelder_BJ,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cWOZ_R_Praesenz_BJ_Z1", stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_R_Praesenz_BJ_Z2    "Präsenz vom BJ PM im Esstisch (Z2)"                 <ikPraesenz>      (eWOZ_Praesenzmelder_BJ,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cWOZ_R_Praesenz_BJ_Z2", stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_R_Praesenz_BJ_Z3    "Präsenz vom BJ PM im Esstisch (Z3)"                 <ikPraesenz>      (eWOZ_Praesenzmelder_BJ,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cWOZ_R_Praesenz_BJ_Z3", stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_R_Praesenz_BJ_Z4    "Präsenz vom BJ PM im Esstisch (Z4)"                 <ikPraesenz>      (eWOZ_Praesenzmelder_BJ,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cWOZ_R_Praesenz_BJ_Z4", stateDescription=" " [readOnly="true" ]}
+Number    iWOZ_R_Helligkeit_BJ     "Helligkeit vom BJ PM im Wohnzimmer"                 <ikHelligkeit>      (eWOZ_Praesenzmelder_BJ,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cWOZ_R_Helligkeit_BJ",  stateDescription=" " [ pattern="%.0f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eWOZ_Beleuchtung_TV   "Beleuchtung TV Wohnzimmer"   <ikBeleuchtung>         (lWohnzimmer,gWOZ,gEG)                [Equipment]
+Switch    iWOZ_RW_Beleuchtung_TV   "Beleuchtung An/Aus TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gBeleuchtung)  [Point]  {channel="knx:device:c58a225b77:cWOZ_RW_Beleuchtung_TV", stateDescription=" "}
+Switch    iWOZ_R_Beleuchtung_TV_Status  "Status Beleuchtung TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gBeleuchtung)  [Point] {channel="knx:device:c58a225b77:cWOZ_R_Beleuchtung_TV_Status", stateDescription=" " [readOnly="true" ]}
+Number    iWOZ_RW_Beleuchtung_TV_Farbtemperatur_Prozent_Absolut "absolute Farbtemperatur in % für TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gBeleuchtung,gFarbtemperatur)  [Point]
+Number    iWOZ_RW_Beleuchtung_TV_Farbtemperatur_Kelvin_Absolut "absolute Farbetemperatur in Kelvin für TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gBeleuchtung,gFarbtemperatur)  [Point]
+Number    iWOZ_RW_Beleuchtung_TV_Farbtemperatur_Prozent_Relativ  "relative Farbtemperatur in % für TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gBeleuchtung,gFarbtemperatur)  [Point]
+Number    iWOZ_R_Beleuchtung_TV_Farbtemperatur_Status_Prozent  "Status Farbtemperatur in % für TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gFarbtemperatur)  [Point]
+Number    iWOZ_R_Beleuchtung_TV_Farbtemperatur_Status_Kelvin  "Status Farbtemperatur in Klevin für TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gFarbtemperatur)  [Point]
+Number    iWOZ_RW_Beleuchtung_TV_Helligkeit_Absolut "abosulte Helligkeit TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gHelligkeit)  [Point]
+Number    iWOZ_RW_Beleuchtung_TV_Helligkeit_Relativ "relative Helligkeit TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gHelligkeit)  [Point]
+Number    iWOZ_R_Beleuchtung_TV_Helligkeit_Status  "Status Helligkeit TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gHelligkeit)  [Point]
+Number    iWOZ_RW_Beleuchtung_TV_HCL_Start  "Status Helligkeit TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gHCL)  [Point]
+Number    iWOZ_R_Beleuchtung_TV_HCL_Status  "Status Helligkeit TV Wohnzimmer"  <ikBeleuchtung>   (eWOZ_Beleuchtung_Spots,gHCL)  [Point]
+
+Group     eWOZ_Glastaster    "Glastaster Wohnzimmer"   <ikGlastaster>         (lWohnzimmer,gWOZ,gEG)                [Equipment]
+Number    iWOZ_R_Temperatur_GT     "Temperatur vom Glastaster im Wohnzimmer"                 <ikTemperatur>      (eWOZ_Glastaster,gTempertatur,gWOZ_Temperatur)       [Point]                 { channel="knx:device:c58a225b77:cWOZ_R_Temperatur_GT", stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eWOZ_Rollladen_F1  "Rollladen (WOZ F1)" <ikRollladen>         (lWohnzimmer,gWOZ,gEG,gWOZ_Rollladen)                [Equipment]
+Rollershutter    iWOZ_RW_Rollladen_F1_AufAb     "Verfahren Rollladen (WOZ F1)"                 <ikRollladen>      (eWOZ_Rollladen_F1,gRollladen,gWOZ_Rollladen)       [Point]            {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F1"}
+Switch    iWOZ_R_Rollladen_F1_Stop    "Stop Rolladen (WOZ F1)"                 <ikRollladen>      (eWOZ_Rollladen_F1,gRollladen,gWOZ_Rollladen)       [Point]  {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F1_Stop"}
+Switch    iWOZ_R_Rollladen_F1_Status_Richtung    "Status Richtung Rolladen (WOZ F1)"                 <ikRollladen>      (eWOZ_Rollladen_F1,gRollladen,gWOZ_Rollladen)       [Point]  {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iWOZ_RW_Rollladen_F1_Absolute_Position    "Akuelle Position vom Rollladen (WOZ F1)"                 <ikRollladen>      (eWOZ_Rollladen_F1,gRollladen,gWOZ_Rollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Absolute_Position"}
+Number    iWOZ_R_Rollladen_F1_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (WOZ F1)"                 <ikRollladen>      (eWOZ_Rollladen_F1,gRollladen,gWOZ_Rollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_RW_Rollladen_F1_Sperre    "Sperre vom Rollladen (WOZ F1)"                 <ikRollladen>      (eWOZ_Rollladen_F1,gRollladen,gWOZ_Rollladen)       [Point]     {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Sperre"}
+Switch    iWOZ_RW_Rollladen_F1_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (WOZ F1)"                 <ikRollladen>      (eWOZ_Rollladen_F1,gRollladen,gWOZ_Rollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Fahrzeitmessung"}
+Switch    iWOZ_R_Rollladen_F1_Status_Obere_Position    "Status obere Position vom Rollladen (WOZ F1)"                 <ikRollladen>      (eWOZ_Rollladen_F1,gRollladen,gWOZ_Rollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_R_Rollladen_F1_Status_Untere_Position    "Status untere Position vom Rollladen (WOZ F1)"                 <ikRollladen>      (eWOZ_Rollladen_F1,gRollladen,gWOZ_Rollladen)       [Point] {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+
+Group     eWOZ_Rollladen_F2  "Rollladen (WOZ F2)" <ikRollladen>         (lWohnzimmer,gWOZ,gEG)                [Equipment]
+Rollershutter    iWOZ_RW_Rollladen_F2_AufAb     "Verfahren Rollladen (WOZ F2)"                 <ikRollladen>      (eWOZ_Rollladen_F2,gRollladen)       [Point]            {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F2"}
+Switch    iWOZ_R_Rollladen_F2_Stop    "Stop Rolladen (WOZ F2)"                 <ikRollladen>      (eWOZ_Rollladen_F2,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F2_Stop"}
+Switch    iWOZ_R_Rollladen_F2_Status_Richtung    "Status Richtung Rolladen (WOZ F2)"                 <ikRollladen>      (eWOZ_Rollladen_F2,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F2_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iWOZ_RW_Rollladen_F2_Absolute_Position    "Akuelle Position vom Rollladen (WOZ F2)"                 <ikRollladen>      (eWOZ_Rollladen_F2,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F2_Absolute_Position"}
+Number    iWOZ_R_Rollladen_F2_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (WOZ F2)"                 <ikRollladen>      (eWOZ_Rollladen_F2,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F2_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_RW_Rollladen_F2_Sperre    "Sperre vom Rollladen (WOZ F2)"                 <ikRollladen>      (eWOZ_Rollladen_F2,gRollladen)       [Point]     {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F2_Sperre"}
+Switch    iWOZ_RW_Rollladen_F2_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (WOZ F2)"                 <ikRollladen>      (eWOZ_Rollladen_F2,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F2_Fahrzeitmessung"}
+Switch    iWOZ_R_Rollladen_F2_Status_Obere_Position    "Status obere Position vom Rollladen (WOZ F2)"                 <ikRollladen>      (eWOZ_Rollladen_F2,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F2_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_R_Rollladen_F2_Status_Untere_Position    "Status untere Position vom Rollladen (WOZ F2)"                 <ikRollladen>      (eWOZ_Rollladen_F2,gRollladen)       [Point] {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F2_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+
+Group     eWOZ_Rollladen_F3  "Rollladen (WOZ F3)" <ikRollladen>         (lWohnzimmer,gWOZ,gEG)                [Equipment]
+Rollershutter    iWOZ_RW_Rollladen_F3_AufAb     "Verfahren Rollladen (WOZ F3)"                 <ikRollladen>      (eWOZ_Rollladen_F3,gRollladen)       [Point]            {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F3"}
+Switch    iWOZ_R_Rollladen_F3_Stop    "Stop Rolladen (WOZ F3)"                 <ikRollladen>      (eWOZ_Rollladen_F3,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F3_Stop"}
+Switch    iWOZ_R_Rollladen_F3_Status_Richtung    "Status Richtung Rolladen (WOZ F3)"                 <ikRollladen>      (eWOZ_Rollladen_F3,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F3_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iWOZ_RW_Rollladen_F3_Absolute_Position    "Akuelle Position vom Rollladen (WOZ F3)"                 <ikRollladen>      (eWOZ_Rollladen_F3,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F3_Absolute_Position"}
+Number    iWOZ_R_Rollladen_F3_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (WOZ F3)"                 <ikRollladen>      (eWOZ_Rollladen_F3,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F3_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_RW_Rollladen_F3_Sperre    "Sperre vom Rollladen (WOZ F3)"                 <ikRollladen>      (eWOZ_Rollladen_F3,gRollladen)       [Point]     {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F3_Sperre"}
+Switch    iWOZ_RW_Rollladen_F3_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (WOZ F3)"                 <ikRollladen>      (eWOZ_Rollladen_F3,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F3_Fahrzeitmessung"}
+Switch    iWOZ_R_Rollladen_F3_Status_Obere_Position    "Status obere Position vom Rollladen (WOZ F3)"                 <ikRollladen>      (eWOZ_Rollladen_F3,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F3_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_R_Rollladen_F3_Status_Untere_Position    "Status untere Position vom Rollladen (WOZ F3)"                 <ikRollladen>      (eWOZ_Rollladen_F3,gRollladen)       [Point] {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F3_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+
+Group     eWOZ_Rollladen_F4  "Rollladen (WOZ F4)" <ikRollladen>         (lWohnzimmer,gWOZ,gEG)                [Equipment]
+Rollershutter    iWOZ_RW_Rollladen_F4_AufAb     "Verfahren Rollladen (WOZ F4)"                 <ikRollladen>      (eWOZ_Rollladen_F4,gRollladen)       [Point]            {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F4"}
+Switch    iWOZ_R_Rollladen_F4_Stop    "Stop Rolladen (WOZ F4)"                 <ikRollladen>      (eWOZ_Rollladen_F4,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F4_Stop"}
+Switch    iWOZ_R_Rollladen_F4_Status_Richtung    "Status Richtung Rolladen (WOZ F4)"                 <ikRollladen>      (eWOZ_Rollladen_F4,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F4_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iWOZ_RW_Rollladen_F4_Absolute_Position    "Akuelle Position vom Rollladen (WOZ F4)"                 <ikRollladen>      (eWOZ_Rollladen_F4,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F4_Absolute_Position"}
+Number    iWOZ_R_Rollladen_F4_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (WOZ F4)"                 <ikRollladen>      (eWOZ_Rollladen_F4,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F4_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_RW_Rollladen_F4_Sperre    "Sperre vom Rollladen (WOZ F4)"                 <ikRollladen>      (eWOZ_Rollladen_F4,gRollladen)       [Point]     {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F4_Sperre"}
+Switch    iWOZ_RW_Rollladen_F4_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (WOZ F4)"                 <ikRollladen>      (eWOZ_Rollladen_F4,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_RW_Rollladen_F4_Fahrzeitmessung"}
+Switch    iWOZ_R_Rollladen_F4_Status_Obere_Position    "Status obere Position vom Rollladen (WOZ F4)"                 <ikRollladen>      (eWOZ_Rollladen_F4,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F4_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iWOZ_R_Rollladen_F4_Status_Untere_Position    "Status untere Position vom Rollladen (WOZ F4)"                 <ikRollladen>      (eWOZ_Rollladen_F4,gRollladen)       [Point] {channel="knx:device:c58a225b77:cWOZ_R_Rollladen_F4_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+
+Group     gKUE "alle Küchen Komponenten"
+Group     eKUE_Glastaster    "Glastaster Küche"   <ikGlastaster>         (lKueche,gKUE,gEG)                [Equipment]
+Number    iKUE_R_Temperatur_GT     "Temperatur vom Glastaster im Küche"                 <ikTemperatur>      (eKUE_Glastaster,gTempertatur)       [Point]                 { channel="knx:device:c58a225b77:cKUE_R_Temperatur_GT", stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eKUE_Praesenzmelder_TP    "Präsenzmelder Küche"   <ikPraesenz>         (lKueche,gKUE,gEG)                [Equipment]
+Switch    iKUE_R_Praesenz_TP_True    "True Präsenz im Küche"                 <ikPraesenz>      (eKUE_Praesenzmelder_TP,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cKUE_R_Praesenz_TP_True", stateDescription=" " [readOnly="true" ]}
+Switch    iKUE_R_Praesenz_TP    "Präsenz im Küche"                 <ikPraesenz>      (eKUE_Praesenzmelder_TP,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cKUE_R_Praesenz_TP", stateDescription=" " [readOnly="true" ]}
+Number    iKUE_R_Temperatur_TP     "Temperatur vom Präsenzmelder im Küche"                 <ikTemperatur>      (eKUE_Praesenzmelder_TP,gTempertatur)       [Point]                 {channel="knx:device:c58a225b77:cKUE_R_Temperatur_TP",  stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iKUE_R_VOC_TP     "VOC vom Präsenzmelder im Küche"                 <ikVOC>      (eKUE_Praesenzmelder_TP,gVOC)       [Point]                 {channel="knx:device:c58a225b77:cKUE_R_VOC_TP",  stateDescription=" " [ pattern="%.0f ppb", min="0", max="2000", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iKUE_R_CO2_TP     "CO2 vom Präsenzmelder im Küche"                 <ikCO2>      (eKUE_Praesenzmelder_TP,gCO2)       [Point]                 {channel="knx:device:c58a225b77:cKUE_R_CO2_TP",  stateDescription=" " [ pattern="%.0f ppm", min="0", max="2000", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iKUE_R_Luftfeuchtigkeit_TP     "Luftfeuchtigkeit vom Präsenzmelder im Küche"                 <ikCO2>      (eKUE_Praesenzmelder_TP,gLuftfeuchtigkeit)       [Point]                 {channel="knx:device:c58a225b77:cKUE_R_Luftfeuchtigkeit_TP",  stateDescription=" " [ pattern="%.1f %", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iKUE_R_Relative_Luftdruck_TP     "relativer Luftfeuchtigkeit vom Präsenzmelder im Küche"                 <ikCO2>      (eKUE_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cKUE_R_Relativer_Luftdruck_TP",  stateDescription=" " [ pattern="%.0f Pa", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iKUE_R_Absoluter_Luftdruck_TP     "absoluter Luftfeuchtigkeit vom Präsenzmelder im Küche"                 <ikCO2>      (eKUE_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cKUE_R_Absoluter_Luftdruck_TP",  stateDescription=" " [ pattern="%.0f Pa", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iKUE_R_Helligkeit_TP     "Helligkeit vom Präsenzmelder im Küche"                 <ikHelligkeit>      (eKUE_Praesenzmelder_TP,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cKUE_R_Helligkeit_TP",  stateDescription=" " [ pattern="%.0f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eKUE_Rollladen_F5  "Rollladen (KUE F5)" <ikRollladen>         (lKueche,gKUE,gEG)                [Equipment]
+Rollershutter    iKUE_RW_Rollladen_F5_AufAb     "Verfahren Rollladen (KUE F5)"                 <ikRollladen>      (eKUE_Rollladen_F5,gRollladen)       [Point]            {channel="knx:device:c58a225b77:cKUE_RW_Rollladen_F5"}
+Switch    iKUE_R_Rollladen_F5_Stop    "Stop Rolladen (KUE F5)"                 <ikRollladen>      (eKUE_Rollladen_F5,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cKUE_R_Rollladen_F5_Stop"}
+Switch    iKUE_R_Rollladen_F5_Status_Richtung    "Status Richtung Rolladen (KUE F5)"                 <ikRollladen>      (eKUE_Rollladen_F5,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cKUE_RW_Rollladen_F5_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iKUE_RW_Rollladen_F5_Absolute_Position    "Akuelle Position vom Rollladen (KUE F5)"                 <ikRollladen>      (eKUE_Rollladen_F5,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cKUE_RW_Rollladen_F5_Absolute_Position"}
+Number    iKUE_R_Rollladen_F5_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (KUE F5)"                 <ikRollladen>      (eKUE_Rollladen_F5,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cKUE_R_Rollladen_F5_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iKUE_RW_Rollladen_F5_Sperre    "Sperre vom Rollladen (KUE F5)"                 <ikRollladen>      (eKUE_Rollladen_F5,gRollladen)       [Point]     {channel="knx:device:c58a225b77:cKUE_RW_Rollladen_F5_Sperre"}
+Switch    iKUE_RW_Rollladen_F5_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (KUE F5)"                 <ikRollladen>      (eKUE_Rollladen_F5,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cKUE_RW_Rollladen_F5_Fahrzeitmessung"}
+Switch    iKUE_R_Rollladen_F5_Status_Obere_Position    "Status obere Position vom Rollladen (KUE F5)"                 <ikRollladen>      (eKUE_Rollladen_F5,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cKUE_R_Rollladen_F5_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iKUE_R_Rollladen_F5_Status_Untere_Position    "Status untere Position vom Rollladen (KUE F5)"                 <ikRollladen>      (eKUE_Rollladen_F5,gRollladen)       [Point] {channel="knx:device:c58a225b77:cKUE_R_Rollladen_F5_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+
+Group     gFLUEG "alle Flur Erdgeschoss Komponenten"
+Group     eFLUEG_Praesenzmelder_BJ    "Präsenzmelder Flur EG"   <ikPraesenz>         (lFlurEG,gFLUEG,gEG)                [Equipment]
+Number    iFLUEG_R_Temperatur_BJ   "Temperatur vom Präsenzmelder Flur EG"                 <ikTemperatur>      (eFLUEG_Praesenzmelder_BJ,gTemperatur)       [Point]                 {channel="knx:device:c58a225b77:cFLUEG_R_Temperatur_BJ", stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Switch    iFLUEG_R_Praesenz_BJ_Z1    "Präsenz vom BJ PM im Flur EG (Z1)"                 <ikPraesenz>      (eFLUEG_Praesenzmelder_BJ,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cFLUEG_R_Praesenz_BJ_Z1", stateDescription=" " [readOnly="true" ]}
+Switch    iFLUEG_R_Praesenz_BJ_Z2    "Präsenz vom BJ PM im Flur EG (Z2)"                 <ikPraesenz>      (eFLUEG_Praesenzmelder_BJ,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cFLUEG_R_Praesenz_BJ_Z2", stateDescription=" " [readOnly="true" ]}
+Switch    iFLUEG_R_Praesenz_BJ_Z3    "Präsenz vom BJ PM im Flur EG (Z3)"                 <ikPraesenz>      (eFLUEG_Praesenzmelder_BJ,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cFLUEG_R_Praesenz_BJ_Z3", stateDescription=" " [readOnly="true" ]}
+Switch    iFLUEG_R_Praesenz_BJ_Z4    "Präsenz vom BJ PM im Flur EG (Z4)"                 <ikPraesenz>      (eFLUEG_Praesenzmelder_BJ,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cFLUEG_R_Praesenz_BJ_Z4", stateDescription=" " [readOnly="true" ]}
+Number    iFLUEG_R_Helligkeit_BJ     "Helligkeit vom BJ PM im Flur EG"                 <ikHelligkeit>      (eFLUEG_Praesenzmelder_BJ,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cFLUEG_R_Helligkeit_BJ",  stateDescription=" " [ pattern="%.0f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     gGWC "alle Gäste WC Komponenten"
+Group     eGWC_Glastaster    "Glastaster Gäste WC"   <ikGlastaster>         (lGWC,gGWC,gEG)                [Equipment]
+Number    iGWC_R_Temperatur_GT     "Temperatur vom Glastaster im Gäste WC"                 <ikTemperatur>      (eGWC_Glastaster,gTempertatur)       [Point]                 {channel="knx:device:c58a225b77:cGWC_R_Temperatur_GT", stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eGWC_Praesenzmelder_TP    "Präsenzmelder Gäste WC"   <ikPraesenz>         (lGWC,gGWC,gEG)                [Equipment]
+Switch    iGWC_R_Praesenz_TP_True    "True Präsenz im Gäste WC"                 <ikPraesenz>      (eGWC_Praesenzmelder_TP,gPraesenz)       [Point]                  {channel="knx:device:c58a225b77:cGWC_R_Praesenz_TP_True",  stateDescription=" " [readOnly="true" ]}
+Switch    iGWC_R_Praesenz_TP    "Präsenz im Gäste WC"                 <ikPraesenz>      (eGWC_Praesenzmelder_TP,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cGWC_R_Praesenz_TP", stateDescription=" " [readOnly="true" ]}
+Number    iGWC_R_Temperatur_TP     "Temperatur vom Präsenzmelder im Gäste-WC"                 <ikTemperatur>      (eGWC_Praesenzmelder_TP,gTempertatur)       [Point]                 {channel="knx:device:c58a225b77:cGWC_R_Temperatur_TP",  stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iGWC_R_Voc_TP     "VOC vom Präsenzmelder im Gäste-WC"                 <ikTemperatur>      (eGWC_Praesenzmelder_TP,gVOC)       [Point]                 {channel="knx:device:c58a225b77:cGWC_R_Voc_TP",  stateDescription=" " [pattern="%.0f ppb",readOnly="true", min="0", max="2000"], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iGWC_R_CO2_TP     "CO2 vom Präsenzmelder im Gäste-WC"                 <ikTemperatur>      (eGWC_Praesenzmelder_TP,gCO2)       [Point]                 {channel="knx:device:c58a225b77:cGWC_R_CO2_TP",  stateDescription=" " [rpattern="%.0f ppm",eadOnly="true", min="0", max="2000"], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iGWC_R_Absoluter_Luftdruck_TP     "Absoluter Luftdruck vom Präsenzmelder im Gäste-WC"                 <ikTemperatur>      (eGWC_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cGWC_R_Absoluter_Luftdruck_TP",  stateDescription=" " [rpattern="%.0f PA",eadOnly="true"], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iGWC_R_Relativer_Luftdruck_TP     "Relativer Luftdruck vom Präsenzmelder im Gäste-WC"                 <ikTemperatur>      (eGWC_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cGWC_R_Relativer_Luftdruck_TP",  stateDescription=" " [rpattern="%.0f PA",eadOnly="true"], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iGWC_R_Luftfeuchtigkeit_TP     "Luftfeuchtigkeit vom Präsenzmelder im Gäste-WC"                 <ikTemperatur>      (eGWC_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cGWC_R_Luftfeuchtigkeit_TP",  stateDescription=" " [rpattern="%.0f %",eadOnly="true"], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eGWC_Rollladen_F6  "Rollladen (GWC F6)" <ikRollladen>         (lGWC,gGWC,gEG)                [Equipment]
+Rollershutter    iGWC_RW_Rollladen_F6_AufAb     "Verfahren Rollladen (GWC F6)"                 <ikRollladen>      (eGWC_Rollladen_F6,gRollladen)       [Point]            {channel="knx:device:c58a225b77:cGWC_RW_Rollladen_F6"}
+Switch    iGWC_R_Rollladen_F6_Stop    "Stop Rolladen (GWC F6)"                 <ikRollladen>      (eGWC_Rollladen_F6,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cGWC_R_Rollladen_F6_Stop"}
+Switch    iGWC_R_Rollladen_F6_Status_Richtung    "Status Richtung Rolladen (GWC F6)"                 <ikRollladen>      (eGWC_Rollladen_F6,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cGWC_RW_Rollladen_F6_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iGWC_RW_Rollladen_F6_Absolute_Position    "Akuelle Position vom Rollladen (GWC F6)"                 <ikRollladen>      (eGWC_Rollladen_F6,gRollladen)       [Point]   {channel="knx:device:c58a225b77 :cGWC_RW_Rollladen_F6_Absolute_Position"}
+Number    iGWC_R_Rollladen_F6_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (GWC F6)"                 <ikRollladen>      (eGWC_Rollladen_F6,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cGWC_R_Rollladen_F6_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iGWC_RW_Rollladen_F6_Sperre    "Sperre vom Rollladen (GWC F6)"                 <ikRollladen>      (eGWC_Rollladen_F6,gRollladen)       [Point]     {channel="knx:device:c58a225b77:cGWC_RW_Rollladen_F6_Sperre"}
+Switch    iGWC_RW_Rollladen_F6_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (GWC F6)"                 <ikRollladen>      (eGWC_Rollladen_F6,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cGWC_RW_Rollladen_F6_Fahrzeitmessung"}
+Switch    iGWC_R_Rollladen_F6_Status_Obere_Position    "Status obere Position vom Rollladen (GWC F6)"                 <ikRollladen>      (eGWC_Rollladen_F6,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cGWC_R_Rollladen_F6_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iGWC_R_Rollladen_F6_Status_Untere_Position    "Status untere Position vom Rollladen (GWC F6)"                 <ikRollladen>      (eGWC_Rollladen_F6,gRollladen)       [Point] {channel="knx:device:c58a225b77:cGWC_R_Rollladen_F6_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+
+Group     gHWR "alle Hauswirtschaftsraum Komponenten"
+Group     eHWR_Glastaster    "Glastaster Hauswirtschaftsraum"   <ikGlastaster>         (lHWR,gHWR,gEG)                [Equipment]
+Number    iHWR_R_Temperatur_GT     "Temperatur vom Glastaster im Hauswirtschaftsraum"                 <ikTemperatur>      (eHWR_Glastaster,gTempertatur)       [Point]                 {channel="knx:device:c58a225b77:cHWR_R_Temperatur_GT",  stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eHWR_Praesenzmelder_TP    "Präsenzmelder Hauswirtschaftsraum"   <ikPraesenz>         (lHWR,gHWR,gEG)                [Equipment]
+Switch    iHWR_R_Praesenz_TP_True    "True Präsenz im Hauswirtschaftsraum"                 <ikPraesenz>      (eHWR_Praesenzmelder_TP,gPraesenz)       [Point]                 {channel="knx:device:c58a225b77:cHWR_R_Praesenz_TP_True",  stateDescription=" " [readOnly="true" ]}
+Switch    iHWR_R_Praesenz_TP    "Präsenz im Hauswirtschaftsraum"                 <ikPraesenz>      (eHWR_Praesenzmelder_TP,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cHWR_R_Praesenz_TP", stateDescription=" " [readOnly="true" ]}
+Number    iHWR_R_Temperatur_TP     "Temperatur vom Präsenzmelder im Hauswirtschaftsraum"                 <ikTemperatur>      (eHWR_Praesenzmelder_TP,gTempertatur)       [Point]                 {channel="knx:device:c58a225b77:cHWR_R_Temperatur_TP",  stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iHWR_R_VOC_TP     "VOC vom Präsenzmelder im Hauswirtschaftsraum"                 <ikVOC>      (eHWR_Praesenzmelder_TP,gVOC)       [Point]                 {channel="knx:device:c58a225b77:cHWR_R_VOC_TP",  stateDescription=" " [ pattern="%.0f ppb", min="0", max="2000", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iHWR_R_CO2_TP     "CO2 vom Präsenzmelder im Hauswirtschaftsraum"                 <ikCO2>      (eHWR_Praesenzmelder_TP,gCO2)       [Point]                 {channel="knx:device:c58a225b77:cHWR_R_CO2_TP",  stateDescription=" " [ pattern="%.0f ppm", min="0", max="2000", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iHWR_R_Luftfeuchtigkeit_TP     "Luftfeuchtigkeit vom Präsenzmelder im Hauswirtschaftsraum"                 <ikCO2>      (eHWR_Praesenzmelder_TP,gLuftfeuchtigkeit)       [Point]                 {channel="knx:device:c58a225b77:cHWR_R_Luftfeuchtigkeit_TP",  stateDescription=" " [ pattern="%.1f %", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iHWR_R_Relative_Luftdruck_TP     "relativer Luftfeuchtigkeit vom Präsenzmelder im Hauswirtschaftsraum"                 <ikCO2>      (eHWR_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cHWR_R_Relativer_Luftdruck_TP",  stateDescription=" " [ pattern="%.0f Pa", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iHWR_R_Absoluter_Luftdruck_TP     "absoluter Luftfeuchtigkeit vom Präsenzmelder im Hauswirtschaftsraum"                 <ikCO2>      (eHWR_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cHWR_R_Absoluter_Luftdruck_TP",  stateDescription=" " [ pattern="%.0f Pa", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iHWR_R_Helligkeit_TP     "Helligkeit vom Präsenzmelder im Hauswirtschaftsraum"                 <ikHelligkeit>      (eHWR_Praesenzmelder_TP,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cHWR_R_Helligkeit_TP",  stateDescription=" " [ pattern="%.0f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+
+Group     eHWR_Rollladen_F7  "Rollladen (GWC F7)" <ikRollladen>         (lHWR,gHWR,gEG)                [Equipment]
+Rollershutter    iHWR_RW_Rollladen_F7_AufAb     "Verfahren Rollladen (GWC F7)"                 <ikRollladen>      (eHWR_Rollladen_F7,gRollladen)       [Point]            {channel="knx:device:c58a225b77:cHWR_RW_Rollladen_F7"}
+Switch    iHWR_R_Rollladen_F7_Stop    "Stop Rolladen (GWC F7)"                 <ikRollladen>      (eHWR_Rollladen_F7,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cHWR_R_Rollladen_F7_Stop"}
+Switch    iHWR_R_Rollladen_F7_Status_Richtung    "Status Richtung Rolladen (GWC F7)"                 <ikRollladen>      (eHWR_Rollladen_F7,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cHWR_RW_Rollladen_F7_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iHWR_RW_Rollladen_F7_Absolute_Position    "Akuelle Position vom Rollladen (GWC F7)"                 <ikRollladen>      (eHWR_Rollladen_F7,gRollladen)       [Point]   {channel="knx:device:c58a225b77 :cHWR_RW_Rollladen_F7_Absolute_Position"}
+Number    iHWR_R_Rollladen_F7_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (GWC F7)"                 <ikRollladen>      (eHWR_Rollladen_F7,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cHWR_R_Rollladen_F7_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iHWR_RW_Rollladen_F7_Sperre    "Sperre vom Rollladen (GWC F7)"                 <ikRollladen>      (eHWR_Rollladen_F7,gRollladen)       [Point]     {channel="knx:device:c58a225b77:cHWR_RW_Rollladen_F7_Sperre"}
+Switch    iHWR_RW_Rollladen_F7_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (GWC F7)"                 <ikRollladen>      (eHWR_Rollladen_F7,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cHWR_RW_Rollladen_F7_Fahrzeitmessung"}
+Switch    iHWR_R_Rollladen_F7_Status_Obere_Position    "Status obere Position vom Rollladen (GWC F7)"                 <ikRollladen>      (eHWR_Rollladen_F7,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cHWR_R_Rollladen_F7_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iHWR_R_Rollladen_F7_Status_Untere_Position    "Status untere Position vom Rollladen (GWC F7)"                 <ikRollladen>      (eHWR_Rollladen_F7,gRollladen)       [Point] {channel="knx:device:c58a225b77:cHWR_R_Rollladen_F7_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+
+Group     gDG  "alle Dachgeschoss Komponenten"
+Group     gSLZ "alle Schlafzimmer Komponenten"
+Group     eSLZ_Glastaster    "Glastaster Schlafzimmer"   <ikGlastaster>         (lSchlafzimmer,gSLZ,gDG)                [Equipment]
+
+Group     eSLZ_Praesenzmelder_TP    "Präsenzmelder Schlafzimmer"   <ikPraesenz>         (lSchlafzimmer,gSLZ,gDG)                [Equipment]
+Switch    iSLZ_R_Praesenz_TP_True    "True Präsenz im Schlafzimmer"                 <ikPraesenz>      (eSLZ_Praesenzmelder_TP,gPraesenz)       [Point]                 { stateDescription=" " [readOnly="true" ]}
+Switch    iSLZ_R_Praesenz_TP    "Präsenz im Schlafzimmer"                 <ikPraesenz>      (eSLZ_Praesenzmelder_TP,gPraesenz)       [Point]                 { stateDescription=" " [readOnly="true" ]}
+
+Group     eSLZ_Rollladen_F1  "Rollladen (SLZ F1)" <ikRollladen>         (lSchlafzimmer,gSLZ,gDG)                [Equipment]
+Rollershutter    iSLZ_RW_Rollladen_F1_AufAb     "Verfahren Rollladen (SLZ F1)"                 <ikRollladen>      (eSLZ_Rollladen_F1,gRollladen)       [Point]            {channel="knx:device:c58a225b77:cSLZ_RW_Rollladen_F1"}
+Switch    iSLZ_R_Rollladen_F1_Stop    "Stop Rolladen (SLZ F1)"                 <ikRollladen>      (eSLZ_Rollladen_F1,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cSLZ_R_Rollladen_F1_Stop"}
+Switch    iSLZ_R_Rollladen_F1_Status_Richtung    "Status Richtung Rolladen (SLZ F1)"                 <ikRollladen>      (eSLZ_Rollladen_F1,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cSLZ_RW_Rollladen_F1_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iSLZ_RW_Rollladen_F1_Absolute_Position    "Akuelle Position vom Rollladen (SLZ F1)"                 <ikRollladen>      (eSLZ_Rollladen_F1,gRollladen)       [Point]   {channel="knx:device:c58a225b77 :cSLZ_RW_Rollladen_F1_Absolute_Position"}
+Number    iSLZ_R_Rollladen_F1_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (SLZ F1)"                 <ikRollladen>      (eSLZ_Rollladen_F1,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cSLZ_R_Rollladen_F1_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iSLZ_RW_Rollladen_F1_Sperre    "Sperre vom Rollladen (SLZ F1)"                 <ikRollladen>      (eSLZ_Rollladen_F1,gRollladen)       [Point]     {channel="knx:device:c58a225b77:cSLZ_RW_Rollladen_F1_Sperre"}
+Switch    iSLZ_RW_Rollladen_F1_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (SLZ F1)"                 <ikRollladen>      (eSLZ_Rollladen_F1,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cSLZ_RW_Rollladen_F1_Fahrzeitmessung"}
+Switch    iSLZ_R_Rollladen_F1_Status_Obere_Position    "Status obere Position vom Rollladen (SLZ F1)"                 <ikRollladen>      (eSLZ_Rollladen_F1,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cSLZ_R_Rollladen_F1_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iSLZ_R_Rollladen_F1_Status_Untere_Position    "Status untere Position vom Rollladen (SLZ F1)"                 <ikRollladen>      (eSLZ_Rollladen_F1,gRollladen)       [Point] {channel="knx:device:c58a225b77:cSLZ_R_Rollladen_F1_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+
+Group     gFLUDG "alle Flur Dachgeschoss Komponenten"
+
+Group     gBAD "alle Bad Komponenten"
+
+Group     eBAD_Glastaster    "Glastaster Bad"   <ikGlastaster>         (lBad,gBAD,gDG)                [Equipment]
+Number    iBAD_R_Temperatur_GT     "Temperatur vom Glastaster im Bad"                 <ikTemperatur>      (eBAD_Glastaster,gTempertatur)       [Point]                 { stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eBAD_Praesenzmelder_BJ_Dusche   "Präsenzmelder Bad (Dusche)"   <ikPraesenz>         (lBad,gBAD,gDG)                [Equipment]
+Number    iBAD_R_Temperatur_BJ_Dusche    "Temperatur vom BJ PM im Bad (Dusche)"                 <ikTemperatur>      (eBAD_Praesenzmelder_BJ_Dusche,gTemperatur)       [Point]                 { channel="knx:device:c58a225b77:cBAD_R_Temperatur_BJ_Dusche",stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Switch    iBAD_R_Praesenz_BJ_Dusche_Z1    "Präsenz vom BJ PM im Bad (Dusche Z1)"                 <ikPraesenz>      (eBAD_Praesenzmelder_BJ_Dusche,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cBAD_R_Praesenz_BJ_Dusche_Z1",stateDescription=" " [readOnly="true" ]}
+Switch    iBAD_R_Praesenz_BJ_Dusche_Z2    "Präsenz vom BJ PM im Bad (Dusche Z2)"                 <ikPraesenz>      (eBAD_Praesenzmelder_BJ_Dusche,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cBAD_R_Praesenz_BJ_Dusche_Z2",stateDescription=" " [readOnly="true" ]}
+Number    iBAD_R_Helligkeit_BJ_Dusche     "Helligkeit vom BJ PM im Bad (Dusche)"                 <ikHelligkeit>      (eBAD_Praesenzmelder_BJ_Dusche,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cBAD_R_Helligkeit_BJ_Dusche",  stateDescription=" " [ pattern="%.0f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eBAD_Praesenzmelder_BJ_Toilette   "Präsenzmelder Bad (Toilette)"   <ikPraesenz>         (lBad,gBAD,gDG)                [Equipment]
+Number    iBAD_R_Temperatur_BJ_Toilette    "Temperatur vom BJ PM im Bad (Toilette)"                 <ikTemperatur>      (eBAD_Praesenzmelder_BJ_Toilette,gTemperatur)       [Point]                 { channel="knx:device:c58a225b77:cBAD_R_Temperatur_BJ_Toilette",stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Switch    iBAD_R_Praesenz_BJ_Toilette_Z1    "Präsenz vom BJ PM im Bad (Toilette Z1)"                 <ikPraesenz>      (eBAD_Praesenzmelder_BJ_Toilette,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cBAD_R_Praesenz_BJ_Toilette_Z1",stateDescription=" " [readOnly="true" ]}
+Switch    iBAD_R_Praesenz_BJ_Toilette_Z2    "Präsenz vom BJ PM im Bad (Toilette Z2)"                 <ikPraesenz>      (eBAD_Praesenzmelder_BJ_Toilette,gPraesenz)       [Point]                 { channel="knx:device:c58a225b77:cBAD_R_Praesenz_BJ_Toilette_Z2",stateDescription=" " [readOnly="true" ]}
+Number    iBAD_R_Helligkeit_BJ_Toilette     "Helligkeit vom BJ PM im Bad (Toilette)"                 <ikHelligkeit>      (eBAD_Praesenzmelder_BJ_Toilette,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cBAD_R_Helligkeit_BJ_Toilette",  stateDescription=" " [ pattern="%.0f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+
+Group     eBAD_Beleuchtung_Dusche   "Beleuchtung Dusche"   <ikLight>         (lBad,gBAD,gDG,gBeleuchtung)                [Equipment]
+Group     iBAD_Beleuchtung_Dusche   "Beleuchtung Dusche"   <ikLight>         (eBAD_Beleuchtung_Dusche,gBeleuchtung)                [Point]
+Group     iBAD_Beleuchtung_Dusche_Dimm   "Wert Dimmung Dusche"   <ikDimm>         (eBAD_Beleuchtung_Dusche,gBeleuchtung)                [Point]
+Group     iBAD_Beleuchtung_Dusche_Dimm_Rel   "Dimmung Relativ Dusche"   <ikDimm>         (eBAD_Beleuchtung_Dusche,gBeleuchtung)                [Point]
+Group     iBAD_Beleuchtung_Dusche_Dimm_Abs   "Dimmung Absolut Dusche"   <ikDimm>         (eBAD_Beleuchtung_Dusche,gBeleuchtung)                [Point]
+Group     iBAD_Beleuchtung_Dusche_Dimm_Stat   "Status Dimmung Dusche"   <ikDimm>         (eBAD_Beleuchtung_Dusche,gBeleuchtung)                [Point]
+
+Group     eBAD_Beleuchtung_Toilette   "Beleuchtung Toilette"   <ikLight>         (lBad,gBAD,gBeleuchtung)                [Equipment]
+Group     iBAD_Beleuchtung_Toilette "Beleuchtung Toilette"   <ikLight>         (eBAD_Beleuchtung_Toilette,gBeleuchtung)                [Point]
+Group     iBAD_Beleuchtung_Toilette_Dimm   "Wert Dimmung Toilette"   <ikDimm>         (eBAD_Beleuchtung_Toilette,gBeleuchtung)                [Point]
+Group     iBAD_Beleuchtung_Toilette_Dimm_Rel   "Dimmung Relativ Toilette"   <ikDimm>         (eBAD_Beleuchtung_Toilette,gBeleuchtung)                [Point]
+Group     iBAD_Beleuchtung_Toilette_Dimm_Abs   "Dimmung Absolut Toilette"   <ikDimm>         (eBAD_Beleuchtung_Toilette,gBeleuchtung)                [Point]
+Group     iBAD_Beleuchtung_Toilette_Dimm_Stat   "Status Dimmung Toilette"   <ikDimm>         (eBAD_Beleuchtung_Toilette,gBeleuchtung)                [Point]
+
+Group     eBAD_Rollladen_F2  "Rollladen (BAD F2)" <ikRollladen>         (lSchlafzimmer,gBAD,gDG)                [Equipment]
+Rollershutter    iBAD_RW_Rollladen_F2_AufAb     "Verfahren Rollladen (BAD F2)"                 <ikRollladen>      (eBAD_Rollladen_F2,gRollladen)       [Point]            {channel="knx:device:c58a225b77:cBAD_RW_Rollladen_F2"}
+Switch    iBAD_R_Rollladen_F2_Stop    "Stop Rolladen (BAD F2)"                 <ikRollladen>      (eBAD_Rollladen_F2,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cBAD_R_Rollladen_F2_Stop"}
+Switch    iBAD_R_Rollladen_F2_Status_Richtung    "Status Richtung Rolladen (BAD F2)"                 <ikRollladen>      (eBAD_Rollladen_F2,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cBAD_RW_Rollladen_F2_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iBAD_RW_Rollladen_F2_Absolute_Position    "Akuelle Position vom Rollladen (BAD F2)"                 <ikRollladen>      (eBAD_Rollladen_F2,gRollladen)       [Point]   {channel="knx:device:c58a225b77 :cBAD_RW_Rollladen_F2_Absolute_Position"}
+Number    iBAD_R_Rollladen_F2_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (BAD F2)"                 <ikRollladen>      (eBAD_Rollladen_F2,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cBAD_R_Rollladen_F2_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iBAD_RW_Rollladen_F2_Sperre    "Sperre vom Rollladen (BAD F2)"                 <ikRollladen>      (eBAD_Rollladen_F2,gRollladen)       [Point]     {channel="knx:device:c58a225b77:cBAD_RW_Rollladen_F2_Sperre"}
+Switch    iBAD_RW_Rollladen_F2_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (BAD F2)"                 <ikRollladen>      (eBAD_Rollladen_F2,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cBAD_RW_Rollladen_F2_Fahrzeitmessung"}
+Switch    iBAD_R_Rollladen_F2_Status_Obere_Position    "Status obere Position vom Rollladen (BAD F2)"                 <ikRollladen>      (eBAD_Rollladen_F2,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cBAD_R_Rollladen_F2_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iBAD_R_Rollladen_F2_Status_Untere_Position    "Status untere Position vom Rollladen (BAD F2)"                 <ikRollladen>      (eBAD_Rollladen_F2,gRollladen)       [Point] {channel="knx:device:c58a225b77:cBAD_R_Rollladen_F2_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+
+Group     gKIZ "alle Kinderzimmer Komponenten"
+Group     eKIZ_Glastaster    "Glastaster Kinderzimmer"   <ikGlastaster>         (lKinderzimmer,gKIZ,gDG)                [Equipment]
+Number    iKIZ_R_Temperatur_GT     "Temperatur vom Glastaster im Kinderzimmer"                 <ikTemperatur>      (eKIZ_Glastaster,gTempertatur)       [Point]                 { stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eKIZ_Praesenzmelder_TP    "Präsenzmelder Kinderzimmer"   <ikPraesenz>         (lKinderzimmer,gKIZ,gDG)                [Equipment]
+Switch    iKIZ_R_Praesenz_TP_True    "True Präsenz im Kinderzimmer"                 <ikPraesenz>      (eKIZ_Praesenzmelder_TP,gPraesenz)       [Point]                 { stateDescription=" " [readOnly="true" ]}
+Switch    iKIZ_R_Praesenz_TP    "Präsenz im Kinderzimmer"                 <ikPraesenz>      (eKIZ_Praesenzmelder_TP,gPraesenz)       [Point]                 { stateDescription=" " [readOnly="true" ]}
+Number    iKIZ_R_Temperatur_TP     "Temperatur vom Präsenzmelder im Kinderzimmer"                 <ikTemperatur>      (eKIZ_Praesenzmelder_TP,gTempertatur)       [Point]                 {channel="knx:device:c58a225b77:cKIZ_R_Temperatur_TP",  stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eKIZ_Rollladen_F3  "Rollladen (KIZ F3)" <ikRollladen>         (lSchlafzimmer,gKIZ,gDG)                [Equipment]
+Rollershutter    iKIZ_RW_Rollladen_F3_AufAb     "Verfahren Rollladen (KIZ F3)"                 <ikRollladen>      (eKIZ_Rollladen_F3,gRollladen)       [Point]            {channel="knx:device:c58a225b77:cKIZ_RW_Rollladen_F3"}
+Switch    iKIZ_R_Rollladen_F3_Stop    "Stop Rolladen (KIZ F3)"                 <ikRollladen>      (eKIZ_Rollladen_F3,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cKIZ_R_Rollladen_F3_Stop"}
+Switch    iKIZ_R_Rollladen_F3_Status_Richtung    "Status Richtung Rolladen (KIZ F3)"                 <ikRollladen>      (eKIZ_Rollladen_F3,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cKIZ_RW_Rollladen_F3_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iKIZ_RW_Rollladen_F3_Absolute_Position    "Akuelle Position vom Rollladen (KIZ F3)"                 <ikRollladen>      (eKIZ_Rollladen_F3,gRollladen)       [Point]   {channel="knx:device:c58a225b77 :cKIZ_RW_Rollladen_F3_Absolute_Position"}
+Number    iKIZ_R_Rollladen_F3_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (KIZ F3)"                 <ikRollladen>      (eKIZ_Rollladen_F3,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cKIZ_R_Rollladen_F3_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iKIZ_RW_Rollladen_F3_Sperre    "Sperre vom Rollladen (KIZ F3)"                 <ikRollladen>      (eKIZ_Rollladen_F3,gRollladen)       [Point]     {channel="knx:device:c58a225b77:cKIZ_RW_Rollladen_F3_Sperre"}
+Switch    iKIZ_RW_Rollladen_F3_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (KIZ F3)"                 <ikRollladen>      (eKIZ_Rollladen_F3,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cKIZ_RW_Rollladen_F3_Fahrzeitmessung"}
+Switch    iKIZ_R_Rollladen_F3_Status_Obere_Position    "Status obere Position vom Rollladen (KIZ F3)"                 <ikRollladen>      (eKIZ_Rollladen_F3,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cKIZ_R_Rollladen_F3_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iKIZ_R_Rollladen_F3_Status_Untere_Position    "Status untere Position vom Rollladen (KIZ F3)"                 <ikRollladen>      (eKIZ_Rollladen_F3,gRollladen)       [Point] {channel="knx:device:c58a225b77:cKIZ_R_Rollladen_F3_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+
+
+Group     gBUR "alle Büro Komponenten"
+Group     eBUR_Glastaster    "Glastaster Büro"   <ikGlastaster>         (lBuero,gBUR,gDG)                [Equipment]
+Number    iBUR_R_Temperatur_GT     "Temperatur vom Glastaster im Büro"                 <ikTemperatur>      (eBUR_Glastaster,gTempertatur)       [Point]                 { stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+Group     eBUR_Praesenzmelder_TP    "Präsenzmelder Büro"   <ikPraesenz>         (lBuero,gBUR,gDG)                [Equipment]
+Switch    iBUR_R_Praesenz_TP_True    "True Präsenz im Büro"                 <ikPraesenz>      (eBUR_Praesenzmelder_TP,gPraesenz)       [Point]                 { stateDescription=" " [readOnly="true" ]}
+Switch    iBUR_R_Praesenz_TP    "Präsenz im Büro"                 <ikPraesenz>      (eBUR_Praesenzmelder_TP,gPraesenz)       [Point]                 { stateDescription=" " [readOnly="true" ]}
+Number    iBUR_R_Temperatur_TP     "Temperatur vom Präsenzmelder im Büro"                 <ikTemperatur>      (eBUR_Praesenzmelder_TP,gTempertatur)       [Point]                 {channel="knx:device:c58a225b77:cBUR_R_Temperatur_TP",  stateDescription=" " [ pattern="%.1f °C", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iBUR_R_VOC_TP     "VOC vom Präsenzmelder im Büro"                 <ikVOC>      (eBUR_Praesenzmelder_TP,gVOC)       [Point]                 {channel="knx:device:c58a225b77:cBUR_R_VOC_TP",  stateDescription=" " [ pattern="%.0f ppb", min="0", max="2000", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iBUR_R_CO2_TP     "CO2 vom Präsenzmelder im Büro"                 <ikCO2>      (eBUR_Praesenzmelder_TP,gCO2)       [Point]                 {channel="knx:device:c58a225b77:cBUR_R_VOC_TP",  stateDescription=" " [ pattern="%.0f ppm", min="0", max="2000", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iBUR_R_Luftfeuchtigkeit_TP     "Luftfeuchtigkeit vom Präsenzmelder im Büro"                 <ikCO2>      (eBUR_Praesenzmelder_TP,gLuftfeuchtigkeit)       [Point]                 {channel="knx:device:c58a225b77:cBUR_R_Luftfeuchtigkeit_TP",  stateDescription=" " [ pattern="%.1f %", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iBUR_R_Relative_Luftdruck_TP     "relativer Luftfeuchtigkeit vom Präsenzmelder im Büro"                 <ikCO2>      (eBUR_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cBUR_R_Relativer_Luftdruck_TP",  stateDescription=" " [ pattern="%.0f Pa", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iBUR_R_Absoluter_Luftdruck_TP     "absoluter Luftfeuchtigkeit vom Präsenzmelder im Büro"                 <ikCO2>      (eBUR_Praesenzmelder_TP,gLuftdruck)       [Point]                 {channel="knx:device:c58a225b77:cBUR_R_Absoluter_Luftdruck_TP",  stateDescription=" " [ pattern="%.0f Pa", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+Number    iBUR_R_Helligkeit_TP     "Helligkeit vom Präsenzmelder im Büro"                 <ikHelligkeit>      (eBUR_Praesenzmelder_TP,gHelligkeit)       [Point]                 {channel="knx:device:c58a225b77:cBUR_R_Helligkeit_TP",  stateDescription=" " [ pattern="%.0f Lux", readOnly="true" ], widget=" " [actionAnalyzerChartType="isoWeek",actionAnalyzerCoordSystem="time",icon="f7:sun_max" ]}
+
+
+Group     eBUR_Rollladen_F4  "Rollladen (BUR F4)" <ikRollladen>         (lSchlafzimmer,gBUR,gDG)                [Equipment]
+Rollershutter    iBUR_RW_Rollladen_F4_AufAb     "Verfahren Rollladen (BUR F4)"                 <ikRollladen>      (eBUR_Rollladen_F4,gRollladen)       [Point]            {channel="knx:device:c58a225b77:cBUR_RW_Rollladen_F4"}
+Switch    iBUR_R_Rollladen_F4_Stop    "Stop Rolladen (BUR F4)"                 <ikRollladen>      (eBUR_Rollladen_F4,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cBUR_R_Rollladen_F4_Stop"}
+Switch    iBUR_R_Rollladen_F4_Status_Richtung    "Status Richtung Rolladen (BUR F4)"                 <ikRollladen>      (eBUR_Rollladen_F4,gRollladen)       [Point]  {channel="knx:device:c58a225b77:cBUR_RW_Rollladen_F4_Status_Richtung",stateDescription=" " [readOnly="true" ]}
+Number    iBUR_RW_Rollladen_F4_Absolute_Position    "Akuelle Position vom Rollladen (BUR F4)"                 <ikRollladen>      (eBUR_Rollladen_F4,gRollladen)       [Point]   {channel="knx:device:c58a225b77 :cBUR_RW_Rollladen_F4_Absolute_Position"}
+Number    iBUR_R_Rollladen_F4_Status_Aktuelle_Position    "Status akuelle Position vom Rollladen (BUR F4)"                 <ikRollladen>      (eBUR_Rollladen_F4,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cBUR_R_Rollladen_F4_Status_Aktuelle_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iBUR_RW_Rollladen_F4_Sperre    "Sperre vom Rollladen (BUR F4)"                 <ikRollladen>      (eBUR_Rollladen_F4,gRollladen)       [Point]     {channel="knx:device:c58a225b77:cBUR_RW_Rollladen_F4_Sperre"}
+Switch    iBUR_RW_Rollladen_F4_Fahrzeitmessung    "Fahrzeitmessung vom Rollladen (BUR F4)"                 <ikRollladen>      (eBUR_Rollladen_F4,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cBUR_RW_Rollladen_F4_Fahrzeitmessung"}
+Switch    iBUR_R_Rollladen_F4_Status_Obere_Position    "Status obere Position vom Rollladen (BUR F4)"                 <ikRollladen>      (eBUR_Rollladen_F4,gRollladen)       [Point]   {channel="knx:device:c58a225b77:cBUR_R_Rollladen_F4_Status_Obere_Position",stateDescription=" " [readOnly="true" ]}
+Switch    iBUR_R_Rollladen_F4_Status_Untere_Position    "Status untere Position vom Rollladen (BUR F4)"                 <ikRollladen>      (eBUR_Rollladen_F4,gRollladen)       [Point] {channel="knx:device:c58a225b77:cBUR_R_Rollladen_F4_Status_Untere_Position",stateDescription=" " [readOnly="true" ]}
+

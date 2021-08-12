@@ -1,0 +1,2347 @@
+{
+  "knx:device:c58a225b77": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "KNX Device",
+      "bridgeUID": {
+        "segments": [
+          "knx",
+          "ip",
+          "a3ba87bc8f"
+        ],
+        "uid": "knx:ip:a3ba87bc8f"
+      },
+      "channels": [
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGen_R_Tag_und_Nacht"
+            ],
+            "uid": "knx:device:c58a225b77:cGen_R_Tag_und_Nacht"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Tag und Nacht",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "0/0/1"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "DateTime Control",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGen_R_Uhrzeit"
+            ],
+            "uid": "knx:device:c58a225b77:cGen_R_Uhrzeit"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "datetime-control"
+            ],
+            "uid": "knx:datetime-control"
+          },
+          "label": "Uhrzeit für KNX Geräte",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "10.001:0/0/2"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "DateTime Control",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGen_R_Datum"
+            ],
+            "uid": "knx:device:c58a225b77:cGen_R_Datum"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "datetime-control"
+            ],
+            "uid": "knx:datetime-control"
+          },
+          "label": "Datum für KNX Geräte",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "11.001:0/0/4"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "DateTime Control",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGen_R_Uhrzeit_und_Datum"
+            ],
+            "uid": "knx:device:c58a225b77:cGen_R_Uhrzeit_und_Datum"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "datetime-control"
+            ],
+            "uid": "knx:datetime-control"
+          },
+          "label": "Datum und Uhrzeit für KNX Geräte",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "19.001:0/0/3"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cDH_R_Daemmerung"
+            ],
+            "uid": "knx:device:c58a225b77:cDH_R_Daemmerung"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Dämmerungswert von der Wetterstation",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "7/1/20"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cDH_R_Helligkeit_Ost"
+            ],
+            "uid": "knx:device:c58a225b77:cDH_R_Helligkeit_Ost"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Helligkeitswert der Wetterstation aus Osten",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "7/1/10"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cDH_R_Helligkeit_West"
+            ],
+            "uid": "knx:device:c58a225b77:cDH_R_Helligkeit_West"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Helligkeitswert der Wetterstation aus Westen",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "7/1/12"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cDH_R_Helligkeit_Sued"
+            ],
+            "uid": "knx:device:c58a225b77:cDH_R_Helligkeit_Sued"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Helligkeitswert der Wetterstation aus Süden",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "7/1/14"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cDH_R_Temperatur"
+            ],
+            "uid": "knx:device:c58a225b77:cDH_R_Temperatur"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Temperaturwert von der Wetterstation",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "7/1/40"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cDH_R_Windgeschwindigkeit"
+            ],
+            "uid": "knx:device:c58a225b77:cDH_R_Windgeschwindigkeit"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Windgeschwindigkeit von der Wetterstation",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "7/1/30"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Praesenz_BJ_Z1"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Praesenz_BJ_Z1"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Präsenz vom BJ PM im Wohnzimmer (Z1)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "2/3/10"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Praesenz_BJ_Z2"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Praesenz_BJ_Z2"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Präsenz vom BJ PM im Wohnzimmer (Z2)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "2/3/11"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Praesenz_BJ_Z3"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Praesenz_BJ_Z3"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Präsenz vom BJ PM im Wohnzimmer (Z3)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "2/3/12"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Praesenz_BJ_Z4"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Praesenz_BJ_Z4"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Präsenz vom BJ PM im Wohnzimmer (Z4)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "2/3/13"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Temperatur_GT"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Temperatur_GT"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Temperatur vom Glastaster im Wohnzimmer",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "4/3/0"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Rollershutter",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F1"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F1"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "rollershutter"
+            ],
+            "uid": "knx:rollershutter"
+          },
+          "label": "Start/Stopp des Rollladen im Wohnzimmer (F1)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "upDown": "5/3/0",
+              "stopMove": "5/3/1",
+              "position": "5/3/3"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F1_Status_Richtung"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Status_Richtung"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Status Richtung des Rollladen im Wohnzimmer (F1)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/2"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F1_Absolute_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Absolute_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Absolute Position des Rollladen im Wohnzimmer (F1)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/3"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F1_Status_Aktuelle_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Status_Aktuelle_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Aktuelle Position des Rollladen im Wohnzimmer (F1)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5.001:5/3/4"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F1_Sperre"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Sperre"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Sperre des Rollladen im Wohnzimmer (F1)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/5"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F1_Fahrzeitmessung"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Fahrzeitmessung"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Start Fahrzeitmessung des Rollladen im Wohnzimmer (F1)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/6"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F1_Status_Obere_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Status_Obere_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Status obere Position des Rollladen im Wohnzimmer (F1)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/7"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F1_Status_Untere_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F1_Status_Untere_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Status untere Position des Rollladen im Wohnzimmer (F1)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/8"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Rollershutter",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F2"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F2"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "rollershutter"
+            ],
+            "uid": "knx:rollershutter"
+          },
+          "label": "Start/Stopp des Rollladen im Wohnzimmer (F2)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "upDown": "5/3/10",
+              "stopMove": "5/3/11",
+              "position": "5/3/13"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F2_Status_Richtung"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F2_Status_Richtung"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Status Richtung des Rollladen im Wohnzimmer (F2)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/12"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F2_Absolute_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F2_Absolute_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Rollladen Wohnzimmer F2 Absolute Position",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/13"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F2_Sperre"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F2_Sperre"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Sperre des Rollladen im Wohnzimmer (F2)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/15"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Rollladen_F2_Status_Aktuelle_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Rollladen_F2_Status_Aktuelle_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Absolute Position des Rollladen im Wohnzimmer (F2)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5001:5/3/14"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F2_Fahrzeitmessung"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F2_Fahrzeitmessung"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Start Fahrzeitmessung des Rollladen im Wohnzimmer (F2)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/16"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Rollladen_F2_Status_Obere_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Rollladen_F2_Status_Obere_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Status obere Position des Rollladen im Wohnzimmer (F2)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/17"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Rollladen_F2_Status_Untere_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Rollladen_F2_Status_Untere_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Status untere Position des Rollladen im Wohnzimmer (F2)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/18"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Rollershutter",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F3"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F3"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "rollershutter"
+            ],
+            "uid": "knx:rollershutter"
+          },
+          "label": "Start/Stopp des Rollladen im Wohnzimmer (F3)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "upDown": "5/3/20",
+              "stopMove": "5/3/21",
+              "position": "5/3/23"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F3_Status_Richtung"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F3_Status_Richtung"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Status Richtung des Rollladen im Wohnzimmer (F3)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/22"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F3_Absolute_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F3_Absolute_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Rollladen Wohnzimmer F3 Absolute Position",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/23"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Rollladen_F3_Status_Aktuelle_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Rollladen_F3_Status_Aktuelle_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Absolute Position des Rollladen im Wohnzimmer (F3)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5.001:5/3/24"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F3_Sperre"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F3_Sperre"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Sperre des Rollladen im Wohnzimmer (F3)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/25"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F3_Fahrzeitmessung"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F3_Fahrzeitmessung"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Start Fahrzeitmessung des Rollladen im Wohnzimmer (F3)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/26"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Rollladen_F3_Status_Obere_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Rollladen_F3_Status_Obere_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Status obere Position des Rollladen im Wohnzimmer (F3)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/27"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Rollladen_F3_Status_Untere_Position"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Rollladen_F3_Status_Untere_Position"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Status untere Position des Rollladen im Wohnzimmer (F3)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/28"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Rollladen_F2_Stop"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Rollladen_F2_Stop"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Stop des Rollladen im Wohnzimmer (F2)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/11"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Rollladen_F1_Stop"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Rollladen_F1_Stop"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Stop des Rollladen im Wohnzimmer (F1)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/1"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Rollladen_F3_Stop"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Rollladen_F3_Stop"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Stop des Rollladen im Wohnzimmer (F3)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/21"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Rollladen_F4_Stop"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Rollladen_F4_Stop"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Stop des Rollladen im Wohnzimmer (F4)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "5/3/33"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Rollershutter",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_RW_Rollladen_F4"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_RW_Rollladen_F4"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "rollershutter"
+            ],
+            "uid": "knx:rollershutter"
+          },
+          "label": "Start/Stopp des Rollladen im Wohnzimmer (F4)",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "upDown": "5/3/30",
+              "stopMove": "5/3/31",
+              "position": "5/3/33"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Relativer_Luftdruck_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Relativer_Luftdruck_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Relativer Luftdruck vom Steinel PM im Wohnzimmer",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/6"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Absoluter_Luftdruck_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Absoluter_Luftdruck_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Absoluter Luftdruck vom Steinel PM im Wohnzimmer",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/5"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Helligkeit_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Helligkeit_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Helligkeit vom Steinel PM im Wohnzimmer",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "3/3/10"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_Luftfeuchtigkeit_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_Luftfeuchtigkeit_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Luftfeuchtigkeit vom Steinel PM im Wohnzimmer",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/0"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_VOC_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_VOC_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "VOC vom Steinel PM im Wohnzimmer",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/11"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cWOZ_R_CO2_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cWOZ_R_CO2_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "CO2 vom Steinel PM im Wohnzimmer",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/15"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cKUE_R_Praesenz_TP_True"
+            ],
+            "uid": "knx:device:c58a225b77:cKUE_R_Praesenz_TP_True"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "True Präsenz vom Steinel PM in der Küche",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "2/3/31"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cKUE_R_Praesenz_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cKUE_R_Praesenz_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Präsenz vom Steinel PM in der Küche",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "2/3/30"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cKUE_R_Temperatur_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cKUE_R_Temperatur_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Temperatur vom Steinel PM in der Küche",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "4/3/31"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cKUE_R_VOC_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cKUE_R_VOC_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "VOC vom Steinel PM in der Küche",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/41"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cKUE_R_CO2_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cKUE_R_CO2_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "CO2 vom Steinel PM in der Küche",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/45"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cHWR_R_VOC_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cHWR_R_VOC_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "VOC vom Steinel PM im Hauswirtschaftsraum",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/71"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cHWR_R_CO2_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cHWR_R_CO2_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "CO2 vom Steinel PM im Hauswirtschaftsraum",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/75"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cHWR_R_Absoluter_Luftdruck_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cHWR_R_Absoluter_Luftdruck_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Absoluter Luftdruck vom Steinel PM im Hauswirtschaftsraum",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/65"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cHWR_R_Luftfeuchtigkeit_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cHWR_R_Luftfeuchtigkeit_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Luftfeuchtigkeit vom Steinel PM im Hauswirtschaftsraum",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/60"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cHWR_R_Praesenz_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cHWR_R_Praesenz_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Präsenz vom Steinel PM im Hauswirtschaftsraum",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "2/3/60"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cHWR_R_Praesenz_TP_True"
+            ],
+            "uid": "knx:device:c58a225b77:cHWR_R_Praesenz_TP_True"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "True Präsenz vom Steinel PM im Hauswirtschaftsraum",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "2/3/61"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cHWR_R_Temperatur_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cHWR_R_Temperatur_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Temperatur vom Steinel PM im Hauswirtschaftsraum",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "4/3/61"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGWC_R_Temperatur_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cGWC_R_Temperatur_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Temperatur vom Steinel PM im Gäste WC",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "4/3/91"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGWC_R_Praesenz_TP_True"
+            ],
+            "uid": "knx:device:c58a225b77:cGWC_R_Praesenz_TP_True"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "True Präsenz vom Steinel PM im Gäste WC",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "2/3/91"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Switch",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGWC_R_Praesenz_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cGWC_R_Praesenz_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "switch"
+            ],
+            "uid": "knx:switch"
+          },
+          "label": "Präsenz vom Steinel PM im Gäste WC",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "2/3/90"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGWC_R_Voc_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cGWC_R_Voc_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "VOC vom Steinel PM im Gäste WC",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/101"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGWC_R_Absoluter_Luftdruck_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cGWC_R_Absoluter_Luftdruck_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Absoluter Luftdruck vom Steinel PM im Gäste WC",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/95"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGWC_R_Relativer_Luftdruck_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cGWC_R_Relativer_Luftdruck_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Relativer Luftdruck vom Steinel PM im Gäste WC",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/96"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGWC_R_Luftfeuchtigkeit_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cGWC_R_Luftfeuchtigkeit_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Luftfeuchtigkeit vom Steinel PM im Gäste WC",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/90"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cHWR_R_Relativer_Luftdruck_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cHWR_R_Relativer_Luftdruck_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Relativer Luftdruck vom Steinel PM im Hauswirtschaftsraum",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/66"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGWC_R_CO2_TP"
+            ],
+            "uid": "knx:device:c58a225b77:cGWC_R_CO2_TP"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "CO2 vom Steinel PM im Gäste WC",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "6/3/105"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "Number",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "knx",
+              "device",
+              "c58a225b77",
+              "cGWC_R_Temperatur_GT"
+            ],
+            "uid": "knx:device:c58a225b77:cGWC_R_Temperatur_GT"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "knx",
+              "number"
+            ],
+            "uid": "knx:number"
+          },
+          "label": "Temperatur vom Glastaster im Gäste WC",
+          "description": "",
+          "configuration": {
+            "properties": {
+              "ga": "4/3/90"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "pingInterval": 600,
+          "address": "1.1.0",
+          "readInterval": 30,
+          "fetch": true
+        }
+      },
+      "properties": {
+        "manfacturerfirmwarerevision": "0",
+        "manfacturerhardwaretype": "00 00 c5 07 00 0c",
+        "firmwareversion": "Unidirectional devices",
+        "manfacturername": "Weinzierl Engineering GmbH",
+        "firmwaretype": "Repeater, Coupler",
+        "manfacturerserialnumber": "00c50102106e"
+      },
+      "uid": {
+        "segments": [
+          "knx",
+          "device",
+          "c58a225b77"
+        ],
+        "uid": "knx:device:c58a225b77"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "knx",
+          "device"
+        ],
+        "uid": "knx:device"
+      },
+      "location": "Schaltschrank"
+    }
+  },
+  "knx:ip:a3ba87bc8f": {
+    "class": "org.openhab.core.thing.internal.BridgeImpl",
+    "value": {
+      "label": "KNX/IP Gateway",
+      "channels": [],
+      "configuration": {
+        "properties": {
+          "useNAT": false,
+          "readRetriesLimit": 3,
+          "ipAddress": "192.168.178.50",
+          "localIp": "192.168.178.38",
+          "autoReconnectPeriod": 60,
+          "type": "TUNNEL",
+          "localSourceAddr": "0.0.0",
+          "readingPause": 50,
+          "portNumber": 3671,
+          "responseTimeout": 10
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "knx",
+          "ip",
+          "a3ba87bc8f"
+        ],
+        "uid": "knx:ip:a3ba87bc8f"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "knx",
+          "ip"
+        ],
+        "uid": ""
+      },
+      "location": "Schaltschrank"
+    }
+  },
+  "ntp:ntp:local": {
+    "class": "org.openhab.core.thing.internal.ThingImpl",
+    "value": {
+      "label": "Lokale Zeit",
+      "channels": [
+        {
+          "acceptedItemType": "DateTime",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "ntp",
+              "ntp",
+              "local",
+              "dateTime"
+            ],
+            "uid": "ntp:ntp:local:dateTime"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "ntp",
+              "dateTime-channel"
+            ],
+            "uid": "ntp:dateTime-channel"
+          },
+          "label": "Datum und Zeit",
+          "description": "Zeigt das Datum und die Zeit des Zeitservers an.",
+          "configuration": {
+            "properties": {}
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        },
+        {
+          "acceptedItemType": "String",
+          "kind": "STATE",
+          "uid": {
+            "segments": [
+              "ntp",
+              "ntp",
+              "local",
+              "string"
+            ],
+            "uid": "ntp:ntp:local:string"
+          },
+          "channelTypeUID": {
+            "segments": [
+              "ntp",
+              "string-channel"
+            ],
+            "uid": "ntp:string-channel"
+          },
+          "label": "Datum und Zeit",
+          "description": "Zeigt das formatierte Datum und die formatierte Zeit des Zeitservers an.",
+          "configuration": {
+            "properties": {
+              "DateTimeFormat": "yyyy-MM-dd HH:mm:ss z"
+            }
+          },
+          "properties": {},
+          "defaultTags": [],
+          "autoUpdatePolicy": "DEFAULT"
+        }
+      ],
+      "configuration": {
+        "properties": {
+          "timeZone": "Europe/Berlin",
+          "hostname": "0.pool.ntp.org",
+          "serverPort": 123,
+          "refreshInterval": 60,
+          "refreshNtp": 30
+        }
+      },
+      "properties": {},
+      "uid": {
+        "segments": [
+          "ntp",
+          "ntp",
+          "local"
+        ],
+        "uid": "ntp:ntp:local"
+      },
+      "thingTypeUID": {
+        "segments": [
+          "ntp",
+          "ntp"
+        ],
+        "uid": "ntp:ntp"
+      }
+    }
+  }
+}
